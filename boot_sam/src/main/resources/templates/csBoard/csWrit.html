@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<!--  <meta th:include="include/header::header" th:remover="tag"/>-->
+<title>등록</title>
+</head>
+<body>
+<div>고객 만족센터 등록</div>
+<input/>
+<div class="container">
+    <form action="/csInsert" method="post">
+       <div class="form-group">
+         <label for="subject">제목</label>
+         <input type="text" class="form-control" id="subject" name="subject" placeholder="제목을 입력하세요"/>
+       </div>
+       <div class="form-group">
+         <label for="content">내용</label>
+         <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+       </div>
+       <button type="submit" class="btn btn-primary">작성</button>
+    </form>
+</div>
+</body>
+</html>

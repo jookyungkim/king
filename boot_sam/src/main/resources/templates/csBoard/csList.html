@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<!-- th:include="디렉토리/페이지::프래그먼트이름" 
+th:remove="tag" 프래그먼트의 태그 제거-->
+<meta th:include="include/header::header" th:remover="tag"/>
+<script src="/js/test.js"></script>
+<script>
+/*
+$(function(){
+	test();
+});
+*/
+</script>
+
+</head>
+<body>
+<div>고객상담 목록</div>
+<br>
+<img src="/images/fruit.jpg"
+width="100" height="100"><br>
+<a th:href="@{/csWrite}">등록</a>
+
+<table border="1">
+  <tr>
+     <th>등록일자</th>
+     <th>등록번호</th>
+     <th>ID</th>
+     <th>이름</th>
+     <th>이메일</th>
+     <th>제목</th>
+     <th>내용</th>
+     <th>원글번호</th>
+     <th>답변수</th>
+     <th>조회수</th>
+     <th>시스템일자</th>
+  </tr>
+    
+  <tr th:each="row: ${list}">
+      <td><span th:text="${row.enroll_dt}"></span></td>
+      <td><span th:text="${row.cs_board_no}"></span></td>
+      <td><span th:text="${row.user_id}"></span></td>
+      <td><span th:text="${row.user_name}"></span></td>
+      <td><span th:text="${row.email}"></span></td>
+      <td><a th:href="@{/csDetail(enroll_dt=${row.enroll_dt}, cs_board_no=${row.cs_board_no})}"><span th:text="${row.subject}"></span></a></td>
+      <td><span th:text="${row.content}"></span></td>
+      <td><span th:text="${row.pseq}"></span></td>
+      <td><span th:text="${row.reply}"></span></td>
+      <td><span th:text="${row.hit}"></span></td>
+      <td><span th:text="${row.enrolldate}"></span></td>
+  </tr>
+    
+</table>
+
+</body>
+</html>

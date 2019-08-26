@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<!--  <meta th:include="include/header::header" th:remover="tag"/>-->
+<title>삭제</title>
+</head>
+<body>
+<div>고객 만족센터 삭제</div>
+<div class="container">
+    <form action="/csDelete" method="post">
+       <div class="form-group">
+         <label for="enroll_dt">등록일자</label>
+         <input type="text" class="form-control" id="enroll_dt" name="enroll_dt" th:value="${csDto.enroll_dt}" />
+       </div>
+       <div class="form-group">
+         <label for="cs_board_no">등록일련번호</label>
+         <input type="text" class="form-control" id="cs_board_no" name="cs_board_no" th:value="${csDto.cs_board_no}" />
+       </div>
+       <div class="form-group">
+         <label for="subject">제목</label>
+         <input type="text" class="form-control" id="subject" name="subject" th:value="${csDto.subject}" placeholder="제목을 입력하세요"/>
+       </div>
+       <div class="form-group">
+         <label for="content">내용</label>
+         <textarea class="form-control" id="content" name="content" rows="3" th:text="${csDto.content}"></textarea>
+       </div>
+       <button type="submit" class="btn btn-primary">삭제</button>
+    </form>
+</div>
+
+</body>
+</html>
